@@ -4,6 +4,7 @@ using UnityEngine;
 using ZXing;
 using TMPro;
 using UnityEngine.UI;
+using System.IO;
 
 public class QRCodeScanner : MonoBehaviour
 {
@@ -22,10 +23,14 @@ public class QRCodeScanner : MonoBehaviour
     private bool _isCamAvaliable;
     private WebCamTexture _cameraTexture;
 
+    private bool[] codes = new bool[200];
+
     // Start is called before the first frame update
     void Start()
     {
         SetUpCamera();
+        Load();
+        //var audiojingle = Resources.Load<AudioClip>("Audio/")
     }
 
     // Update is called once per frame
@@ -64,7 +69,34 @@ public class QRCodeScanner : MonoBehaviour
             Result result = barcodeReader.Decode(_cameraTexture.GetPixels32(), _cameraTexture.width, _cameraTexture.height);
             if (result != null)
             {
-                _textOut.text = result.Text;
+                int rnum;
+
+                if(int.TryParse(result.Text, out rnum))
+                {
+                    if(rnum >= 0 && rnum <= 200)
+                    {
+                        //_textOut.text = "";
+
+                        if(codes[rnum-1] == false)
+                        {
+                            codes[rnum - 1] = true;
+                            Save();
+                            _textOut.text = "You found one!";
+                        }
+                        else
+                        {
+                            _textOut.text = codes[0].ToString();
+                        }
+                    }
+                    else
+                    {
+                        _textOut.text = "Not valid QR code";
+                    }
+                }
+                else
+                {
+                    _textOut.text = "Not valid QR code";
+                }
             }
             else
             {
@@ -93,5 +125,20 @@ public class QRCodeScanner : MonoBehaviour
 
         int orientation = -_cameraTexture.videoRotationAngle;
         _rawImageBackground.rectTransform.localEulerAngles = new Vector3(0, 0, orientation);
+    }
+
+    private void Save()
+    {
+        string save = JsonUtility.ToJson(codes);
+        File.WriteAllText("Data/save.json", save);
+    }
+
+    private void Load()
+    {
+        if(File.Exists("Data/save.json"))
+        {
+            string save = File.ReadAllText("Data/save.json");
+            codes = JsonUtility.FromJson<bool[]>(save);
+        }
     }
 }
