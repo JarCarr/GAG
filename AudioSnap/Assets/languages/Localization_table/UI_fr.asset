@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: fr
   m_SharedData: {fileID: 11400000, guid: f8398d3deba0a094fa90a90b7a7221b9, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - id: 0
   m_TableData:
   - m_Id: 17020035072
     m_Localized: Retourner
@@ -43,9 +44,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 924487065600
-    m_Localized: 
+    m_Localized: Audio {number}
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - id: 0
   - m_Id: 959434006528
     m_Localized: soumettre
     m_Metadata:
@@ -56,3 +58,7 @@ MonoBehaviour:
       m_Items: []
   references:
     version: 1
+    00000000:
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0020b93fd7000000
