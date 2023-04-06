@@ -25,12 +25,14 @@ public class QRCodeScanner : MonoBehaviour
 
     private bool[] codes = new bool[200];
 
+    [SerializeField]
+    private AudioSource audiojingle;
+
     // Start is called before the first frame update
     void Start()
     {
         SetUpCamera();
-        Load();
-        //var audiojingle = Resources.Load<AudioClip>("Audio/")
+        //audiojingle = Resources.Load<AudioClip>("Audio/jingle.mp3");
     }
 
     // Update is called once per frame
@@ -73,39 +75,24 @@ public class QRCodeScanner : MonoBehaviour
 
                 if(int.TryParse(result.Text, out rnum))
                 {
-                    if(rnum >= 0 && rnum <= 200)
+                    if(rnum > 0 && rnum <= 200)
                     {
-                        //_textOut.text = "";
-
-                        if(codes[rnum-1] == false)
+                        string codes = PlayerPrefs.GetString("values");
+                        if (codes[rnum-1] == '0')
                         {
-                            codes[rnum - 1] = true;
-                            Save();
-                            _textOut.text = "You found one!";
-                        }
-                        else
-                        {
-                            _textOut.text = codes[0].ToString();
+                            char[] values = codes.ToCharArray();
+                            values[rnum - 1] = '1';
+                            string newValues = new string(values);
+                            PlayerPrefs.SetString("values", newValues);
+                            audiojingle.Play();
                         }
                     }
-                    else
-                    {
-                        _textOut.text = "Not valid QR code";
-                    }
                 }
-                else
-                {
-                    _textOut.text = "Not valid QR code";
-                }
-            }
-            else
-            {
-                _textOut.text = "Failed to read QR code";
             }
         }
         catch
         {
-            _textOut.text = "Failed to Scan";
+
         }
     }
 
@@ -125,20 +112,5 @@ public class QRCodeScanner : MonoBehaviour
 
         int orientation = -_cameraTexture.videoRotationAngle;
         _rawImageBackground.rectTransform.localEulerAngles = new Vector3(0, 0, orientation);
-    }
-
-    private void Save()
-    {
-        string save = JsonUtility.ToJson(codes);
-        File.WriteAllText("Data/save.json", save);
-    }
-
-    private void Load()
-    {
-        if(File.Exists("Data/save.json"))
-        {
-            string save = File.ReadAllText("Data/save.json");
-            codes = JsonUtility.FromJson<bool[]>(save);
-        }
     }
 }

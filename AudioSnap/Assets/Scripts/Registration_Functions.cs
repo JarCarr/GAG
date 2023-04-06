@@ -23,7 +23,7 @@ public class Registration_Functions : MonoBehaviour
     public void Register(InputField namebox) {
         PlayerPrefs.SetString("name", name);
         PlayerPrefs.SetInt("score", 0);
-        PlayerPrefs.SetString("values", "1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1");
+        PlayerPrefs.SetString("values", "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
         PlayerPrefs.SetInt("FirstRun", 0);
         PlayerPrefs.Save();
 
