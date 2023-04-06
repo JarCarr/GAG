@@ -26,15 +26,16 @@ public class Settings : MonoBehaviour
 
 
         
-        if (PlayerPrefs.GetString("lang") == "English")
+        if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[0])
         {
            PlayerPrefs.SetString("lang", "Spanish");
            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[1];
+           
            //sprite.sprite = spn;
           
         }
 
-        else if (PlayerPrefs.GetString("lang") == "Spanish")
+        else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[1])
         {
             PlayerPrefs.SetString("lang", "Italian");
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[2];
@@ -42,7 +43,7 @@ public class Settings : MonoBehaviour
             
         }
 
-        else if (PlayerPrefs.GetString("lang") == "Italian")
+        else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[2])
         {
             PlayerPrefs.SetString("lang", "French");
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[3];
@@ -50,7 +51,7 @@ public class Settings : MonoBehaviour
             
         }
 
-        else if (PlayerPrefs.GetString("lang") == "French")
+        else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[3])
         {
             PlayerPrefs.SetString("lang", "German");
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[4];
@@ -58,14 +59,14 @@ public class Settings : MonoBehaviour
             
         }
 
-        else if (PlayerPrefs.GetString("lang") == "German")
+        else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[4])
         {
             PlayerPrefs.SetString("lang", "Japanese");
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[5];
             //sprite.sprite = jpn;
             
         }
-                else if (PlayerPrefs.GetString("lang") == "Japanese")
+        else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[5])
         {
             PlayerPrefs.SetString("lang", "Portugese");
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[6];
@@ -73,7 +74,7 @@ public class Settings : MonoBehaviour
             
         }
 
-        else if (PlayerPrefs.GetString("lang") == "Portugese")
+        else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.Locales[6])
         {
             PlayerPrefs.SetString("lang", "English");
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[0];
