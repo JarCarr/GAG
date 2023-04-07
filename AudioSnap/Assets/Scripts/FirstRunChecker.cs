@@ -11,7 +11,7 @@ public class FirstRunChecker : MonoBehaviour
         //int firstRun = PlayerPrefs.GetInt("savedFirstRun");
         if (!PlayerPrefs.HasKey("FirstRun"))
         {
-            PlayerPrefs.SetString("Name", "");
+            PlayerPrefs.SetString("name", "[No Name Found]");
             PlayerPrefs.SetInt("Score", 0);
             SceneManager.LoadScene("Reg");
         }

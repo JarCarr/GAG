@@ -21,7 +21,8 @@ public class Registration_Functions : MonoBehaviour
 
     //Name Register Function for the Registration screen
     public void Register(InputField namebox) {
-        PlayerPrefs.SetString("name", name);
+        PlayerPrefs.SetString("name", namebox.text);
+        Debug.Log(PlayerPrefs.GetString("name"));
         PlayerPrefs.SetInt("score", 0);
         PlayerPrefs.SetString("values", "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
         PlayerPrefs.SetInt("FirstRun", 0);

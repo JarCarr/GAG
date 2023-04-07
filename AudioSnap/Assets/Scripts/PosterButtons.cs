@@ -13,6 +13,7 @@ public class PosterButtons : MonoBehaviour
 
     public int id;
 
+    public Color local_color;
 
     // Start is called before the first frame update
     void Start()
