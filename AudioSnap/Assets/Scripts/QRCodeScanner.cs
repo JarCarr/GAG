@@ -85,6 +85,7 @@ public class QRCodeScanner : MonoBehaviour
                             string newValues = new string(values);
                             PlayerPrefs.SetString("values", newValues);
                             audiojingle.Play();
+                            PlayerPrefs.SetInt("score", (PlayerPrefs.GetInt("score") + 1));
                         }
                     }
                 }

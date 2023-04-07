@@ -13,6 +13,8 @@ public class PosterButtons : MonoBehaviour
 
     public int id;
 
+    public AudioSource au;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,9 @@ public class PosterButtons : MonoBehaviour
     
         if(PosterScreen.values[tempid] == '1') {
             Debug.Log("poster" + (tempid + 1) + "IS valid!");
+            int num = tempid + 1;
+            au.clip = Resources.Load<AudioClip>("Audio/" + num);
+            au.Play();
         }
         else if(PosterScreen.values[tempid] == '0') {
             Debug.Log("poster" + (tempid + 1) + " IS invalid! \n Value = " + PosterScreen.values[tempid]);
