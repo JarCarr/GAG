@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PosterScreen : MonoBehaviour
 {
-    public static bool[] values;
+    public static char[] values;
     // Start is called before the first frame update
     void Start()
     {
-        values = ArrayHandler.TextToNumArray(PlayerPrefs.GetString("values"));
+        values = PlayerPrefs.GetString("values").ToCharArray();
     }
 
     // Update is called once per frame

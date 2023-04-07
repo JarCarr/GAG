@@ -15,7 +15,7 @@ public class PosterButtons : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start(Text obj)
+    void Start()
     {
     }
 
@@ -28,10 +28,11 @@ public class PosterButtons : MonoBehaviour
     public void OnClick(GameObject obj){
 
         int tempid = obj.GetComponent<PosterButtons>().id;
-        if(PosterScreen.values[tempid] == true) {
+    
+        if(PosterScreen.values[tempid] == '1') {
             Debug.Log("poster" + (tempid + 1) + "IS valid!");
         }
-        else if(PosterScreen.values[tempid] == false) {
+        else if(PosterScreen.values[tempid] == '0') {
             Debug.Log("poster" + (tempid + 1) + " IS invalid! \n Value = " + PosterScreen.values[tempid]);
         }
         else{
