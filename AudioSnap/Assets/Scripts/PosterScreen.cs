@@ -16,8 +16,6 @@ public class PosterScreen : MonoBehaviour
 
         for (int i = 0; i < go.transform.childCount; i++)
         {
-            //go.transform.GetChild(i).GetComponent<Text>().color = Color.red;
-
             if(PlayerPrefs.GetString("values")[i] == '0')
             {
                 go.transform.GetChild(i).GetComponent<Text>().color = Color.red;
