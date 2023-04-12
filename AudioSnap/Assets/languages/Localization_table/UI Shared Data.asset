@@ -51,6 +51,10 @@ MonoBehaviour:
     m_Key: Enter name here...
     m_Metadata:
       m_Items: []
+  - m_Id: 2905652762058752
+    m_Key: name error
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

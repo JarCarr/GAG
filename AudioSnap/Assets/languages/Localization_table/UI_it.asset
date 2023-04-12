@@ -57,6 +57,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - id: 0
+  - m_Id: 2905652762058752
+    m_Localized: "Il nome non pu\xF2 contenere spazi vuoti"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
     00000000:
